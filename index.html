@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <title>Belajar Javascipt</title>
+  </head>
+  <body>
+  	<style>
+  		.captcha{
+  			color: white;
+  			background-color: green;
+  			width: 100px;
+  		}
+  		.pesanerror{
+  			color: red;
+  		}
+  	</style>
+  	<script>
+  		var captcha = new Array ();
+  		function captchajavascript(){
+  			var recaptcha = document.getElementById("nilaicaptcha").value;;
+  			var nilai = 0;
+  			for(var i=0; i<6; i++){
+  				if(recaptcha.charAt(i)!=captcha[i]){
+  					nilai++;
+  				}
+  			}
+  			if(recaptcha==""){
+  				document.getElementById("errCaptcha").innerHTML= "isi captcha terlebih dahulu" ;
+  			}else if(nilai>0 || recaptcha.length>6){
+  				document.getElementById("errCaptcha").innerHTML = "Mohon maaf captcha yang anda masukan salah";
+  			}else{
+  				document.getElementById("errCaptcha").innerHTML = "Data sudah berhasil disimpan";
+  			}
+  		}
+  		function createCaptcha(){
+  			for(z=0; z<6; z++){
+  				if(z %2 == 0){
+  					captcha[z] = String.fromCharCode(Math.floor((Math.random()*26)+65));
+  				}else{
+  					captcha[z] = Math.floor((Math.random()*10)+0);
+  				}
+  			}
+  			thecaptcha = captcha.join("");
+  			document.getElementById('captcha').innerHTML= "<span class='captcha'>" + thecaptcha + "</span>" + "&nbsp; <a onclick='createCaptcha()' href='#'>Cari yang lain</a>"
+  		}
+  	</script>
+    <div class="container">
+    	<div class="row">
+    		<div class="offset-md-2 col-md-8">
+				<form>
+				  <div class="form-group">
+				    <label for="exampleInputEmail1">Nama</label>
+				    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Masukan Nama">
+				  </div>
+				  <div class="form-group">
+				    <label for="exampleInputPassword1">User Name</label>
+				    <input type="username" class="form-control" id="exampleInputPassword1" placeholder="Masukan Username">
+				  </div>
+				  <div class="form-group">
+				    <label for="exampleInputPassword1">Password</label>
+				    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+				  </div>
+					<div class="form-group">
+				    <label for="exampleFormControlTextarea1">Alamat</label>
+				    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+				  </div>
+				  <div class="form-group">
+				  	<label for="exampleInputPassword1">Captcha</label>
+				  	<span id="captcha"></span>
+				  	<script>createCaptcha();</script>
+				  </div>
+				  <div class="form-group">
+				    <label for="exampleInputPassword1">Silahkan Isi Captcha Terlebih Dahulu</label>
+				    <input type="text" class="form-control" id="nilaicaptcha" placeholder="Password">
+				    <span id="errCaptcha" class="pesanerror"></span>
+				  </div>
+				  <input type="submit" class="btn btn-primary" name="" value="simpan" onclick="captchajavascript()">
+				</form>
+    		</div>
+    	</div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  </body>
+</html>
