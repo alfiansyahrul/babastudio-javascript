@@ -6,7 +6,7 @@ document.getElementById('form-pinjaman').addEventListener('submit', kalkulatorPi
 function kalkulatorPinjaman(e){
 
     const amount        = document.getElementById('amount');
-    const interest      = document.getElementById('interst');
+    const interest      = document.getElementById('interest');
     const years         = document.getElementById('years');
     const pembayaran    = document.getElementById('pembayaran');
     const totalPayment  = document.getElementById('total_payment');
