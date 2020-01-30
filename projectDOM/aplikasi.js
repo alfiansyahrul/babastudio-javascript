@@ -48,7 +48,7 @@ function ambilTugas(){
 
 
 function addTask(e){
-	if(taskInput.value === ''){
+	if(taskInput.value === taskInput.value){
 		alert('data berhasil disimpan');
 	}
 
